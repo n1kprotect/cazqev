@@ -1,219 +1,136 @@
 <!DOCTYPE html>
 <html lang="en" onkeydown="jar()" oncontextmenu="jar()">
-<head>
-    <meta charset="UTF-8">
-    <meta name="google" value="notranslate">
-    <meta name="yandex" value="notranslate">
-    <title>никпротект</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" /><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-        /*
- * Preparing stage
-*/
-html,
-body {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-}
+   <head>
+      <meta charset="UTF-8">
+      <meta name="google" value="notranslate">
+      <meta name="yandex" value="notranslate">
+      <title>никпротект</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <style>
+         /*
+         * Preparing stage
+         */
+         html,
+         body {
+         padding: 0;
+         margin: 0;
+         height: 100%;
+         }
+         body {
+         position: relative;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         background: #262424;
+         color: #b3adad;
+         }
+         body:before {
+         position: absolute;
+         top: 50%;
+         right: 0;
+         bottom: 0;
+         left: 0;
+         border-top: 1px solid rgba(255, 255, 255, 0.2);
+         background: rgba(255, 255, 255, 0.06);
+         -webkit-backdrop-filter: blur(5px);
+         backdrop-filter: blur(5px);
+         z-index: -1;
+         }
+         /*
+         * Start
+         */
+         .glassIco {
+         --width: 100px;
+         width: var(--width);
+         height: var(--width);
+         color: #fff;
+         font-size: 30px;
+         border-radius: 5px;
+         background: rgba(255, 255, 255, 0.05);
+         -webkit-backdrop-filter: blur(2px);
+         backdrop-filter: blur(2px);
+         border: 1px solid rgba(255, 255, 255, 0.2);
+         border-right-color: rgba(255, 255, 255, 0.1);
+         border-bottom-color: rgba(255, 255, 255, 0.1);
+         box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
+         text-decoration: none;
+         margin: 20px;
+         overflow: hidden;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         }
+         .glassIco, .glassIco * {
+         box-sizing: border-box;
+         transition: 200ms;
+         }
+         .glassIco:before {
+         content: "";
+         position: absolute;
+         display: block;
+         width: 50%;
+         height: 100%;
+         background: rgba(255, 255, 255, 0.5);
+         filter: blur(0px);
+         transition: 400ms;
+         transform: skewX(45deg) translateX(calc(var(--width) + 50%));
+         }
+         .glassIco:hover {
+         transform: translateY(-20px);
+         }
+         .glassIco:hover:before {
+         transform: skewX(45deg) translateX(calc(var(--width) * -1 - 50%));
+         }
+         .glassIco > * {
+         opacity: 0.8;
+         }
+         @keyframes ripple{
+         0%{
+         transform: scale(0.8);
+         }
+         50%{
+         transform: scale(1.2);
+         }
+         100%{
+         transform: scale(0.8);
+         }
+         }
+         .fab, .glassIco{
+         display: none;
+         }
+         @media screen and (max-width: 1280px)
+         {.fab, .glassIco{
+         display: flex;
+         }
+         body{
+         background: #3399ff;
+         }
+         .nomb{
+         display: none;
+         }
+         }
+      </style>
+   </head>
+   <pre class="nomb">нажми любую клавишу 😀 </pre>
+   <a class="glassIco" onclick="jar()">
+   <i class="fab fa-telegram"></i>
+   </a>
+   <script>
+      function jar() {
 
-
-
-body {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-body:before {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.06);
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
-  z-index: -1;
-}
-
-/*
- * Start
-*/
-.glassIco {
-  --width: 100px;
-  width: var(--width);
-  height: var(--width);
-  color: #fff;
-  font-size: 30px;
-  border-radius: 5px;
-  background: rgba(255, 255, 255, 0.05);
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-right-color: rgba(255, 255, 255, 0.1);
-  border-bottom-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.1);
-  text-decoration: none;
-  margin: 20px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.glassIco, .glassIco * {
-  box-sizing: border-box;
-  transition: 200ms;
-}
-.glassIco:before {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  filter: blur(0px);
-  transition: 400ms;
-  transform: skewX(45deg) translateX(calc(var(--width) + 50%));
-}
-.glassIco:hover {
-  transform: translateY(-20px);
-}
-.glassIco:hover:before {
-  transform: skewX(45deg) translateX(calc(var(--width) * -1 - 50%));
-}
-.glassIco > * {
-  opacity: 0.8;
-}
-
-
-
-.circle{
-  position: absolute;
-  border-radius: 50%;
-  background: white;
-  animation: ripple 15s infinite;
-  box-shadow: 0px 0px 1px 0px #508fb9;
-}
-
-.small{
-  width: 200px;
-  height: 200px;
-  left: -100px;
-  bottom: -100px;
-}
-
-.medium{
-  width: 400px;
-  height: 400px;
-  left: -200px;
-  bottom: -200px;
-}
-
-.large{
-  width: 600px;
-  height: 600px;
-  left: -300px;
-  bottom: -300px;
-}
-
-.xlarge{
-  width: 800px;
-  height: 800px;
-  left: -400px;
-  bottom: -400px;
-}
-
-.xxlarge{
-  width: 1000px;
-  height: 1000px;
-  left: -500px;
-  bottom: -500px;
-}
-
-.shade1{
-  opacity: 0.2;
-}
-.shade2{
-  opacity: 0.5;
-}
-
-.shade3{
-  opacity: 0.7;
-}
-
-.shade4{
-  opacity: 0.8;
-}
-
-.shade5{
-  opacity: 0.9;
-}
-
-@keyframes ripple{
-  0%{
-    transform: scale(0.8);
-  }
-
-  50%{
-    transform: scale(1.2);
-  }
-
-  100%{
-    transform: scale(0.8);
-  }
-}
-
-.fab, .glassIco{
-    display: none;
-}
-
-
-
-@media screen and (max-width: 1280px)
-{.fab, .glassIco{
-    display: flex;
-}
-    body{
-  background: #3399ff;
-    }
-    .nomb{
-        display: none;
-    }
-
-}
-    </style>
-</head>
-<body>
-
-<pre class="nomb">нажми любую клавишу</pre>
-
-<a class="glassIco" onclick="jar()">
-    <i class="fab fa-telegram"></i>
-</a>
-
-<script>
-    var copyText = document.getElementById("чел ты");
-
-  copyText.select();
-
-  document.execCommand("copy");
-    function jar() {
-
-        if (document.addEventListener) {
-  document.addEventListener('contextmenu', function(e) {
-    e.preventDefault();
-  }, false);
-} else {
-  document.attachEvent('oncontextmenu', function() {
-    window.event.returnValue = false;
-  });
-}
-        location.href='tg://resolve?domain=cazqev'
-    }
-</script>
-
-</body>
+          if (document.addEventListener) {
+              document.addEventListener('contextmenu', function(e) {
+                  e.preventDefault();
+              }, false);
+          } else {
+              document.attachEvent('oncontextmenu', function() {
+                  window.returnValue = false;
+              });
+          }
+          location.href = 'tg://resolve?domain=cazqev'
+      }
+   </script>
+   </body>
 </html>
